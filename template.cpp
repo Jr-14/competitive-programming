@@ -33,7 +33,7 @@ void solve() {
 
 int main() {
     Speed();
-    int t = 1;
+    int t;
     cin >> t;
     while (t--) {
         solve();
