@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <unordered_map>
 
 using namespace std;
 
@@ -14,9 +15,23 @@ void Speed() {
 }
 
 void solve() {
-    int n;
-    cin >> n;
-    cout << n - 1 << endl;
+    int t;
+    vector<int> nv;
+    cin >> t;
+    while (t--) {
+        int j;
+        cin >> j;
+        nv.push_back(j);
+    }
+
+    unordered_map<int, int> m;
+    vector<int> out;
+
+    for (int n : nv) {
+        if (m.try_emplace(n, 1)) {
+            continue;
+        }
+    }
 }
 
 

@@ -14,9 +14,21 @@ void Speed() {
 }
 
 void solve() {
-    int n;
-    cin >> n;
-    cout << n - 1 << endl;
+    string b;
+    cin >> b;
+    string out;
+    int i = b.size() - 1;
+    while (i >= 0) {
+        if (b[i] == 'q') {
+            out += 'p';
+        } else if (b[i] == 'p') {
+            out += 'q';
+        } else {
+            out += 'w';
+        }
+        i--;
+    }
+    cout << out << endl;
 }
 
 

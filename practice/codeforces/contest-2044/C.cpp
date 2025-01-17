@@ -14,9 +14,16 @@ void Speed() {
 }
 
 void solve() {
-    int n;
-    cin >> n;
-    cout << n - 1 << endl;
+    int m, a, b, c;
+    int sum = 0;
+    cin >> m >> a >> b >> c;
+    int al = min(m, a);
+    int bl = min(m ,b);
+    int cl = min(m - al, c);
+    sum += (al + bl + cl);
+    c -= cl;
+    sum += min(m - bl, c);
+    cout << sum << endl;
 }
 
 
