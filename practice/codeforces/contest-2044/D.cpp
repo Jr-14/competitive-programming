@@ -15,22 +15,29 @@ void Speed() {
 }
 
 void solve() {
-    int t;
-    vector<int> nv;
-    cin >> t;
-    while (t--) {
+    int n;
+    cin >> n;
+    vector<int> nv(n);
+    while (n--) {
         int j;
         cin >> j;
-        nv.push_back(j);
+        nv[n] = j;
     }
 
-    unordered_map<int, int> m;
+    map<int, int> count;
     vector<int> out;
-
-    for (int n : nv) {
-        if (m.try_emplace(n, 1)) {
-            continue;
+    int i = nv.size() - 1;
+    while (i >= 0) {
+        int mode = nv[i];
+        if (count.find(mode) != count.end()) {
+            cout << mode << " not found" << endl;
+            count.insert({mode, 1});
+        } else {
+            cout << "Found: " << mode << endl;
+            // int k = count.at(mode);
+            // count.insert({mode, k++});
         }
+        i--;
     }
 }
 
