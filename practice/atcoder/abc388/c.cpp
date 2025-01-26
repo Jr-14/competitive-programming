@@ -4,6 +4,7 @@
 using namespace std;
 
 #define ll long long
+#define MAXN 500005
 
 /**
  * Speed up cin and cout
@@ -14,32 +15,24 @@ void Speed() {
     cout.tie(NULL);
 }
 
-void solve() {
-
-}
-
+int a[MAXN];
 
 int main() {
     Speed();
     int n;
     cin >> n;
-    vector<int> m(n);
-    for (int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        m[i] = a;
+    for (int i=1; i<=n; i++) {
+        cin >> a[i];
     }
 
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (m[j] / m[i] > 1) {
-                count += n -j;
-                break;
-            }
+    ll count = 0;
+    for (int i = 1, j = 1; i <= n; i++) {
+        while(a[j] <= a[i] / 2) {
+            j++;
         }
+        count += j - 1LL;
     }
 
-    cout << count << endl;
+    cout << count << "\n";
     return 0;
 }
