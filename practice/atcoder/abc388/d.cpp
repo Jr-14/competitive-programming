@@ -14,34 +14,66 @@ void Speed() {
     cout.tie(NULL);
 }
 
-
-int main() {
-    Speed();
+void Solve() {
     int n;
     cin >> n;
     vector<int> a(n);
     for(int i = 0; i < n; i++) {
-        int b;
-        cin >> b;
-        a[i] = b;
+        cin >> a[i];
     }
 
-    int bucket = 0;
-    for(int i = 0; i < n; i++ ) {
-        for (int j = 0; j < i; j++) {
-            if (a[j] != 0) {
-                a[j] -= 1;
-                bucket += 1;
-            }
-        }
-        a[i] += bucket;
-        bucket = 0;
-        // cout << a[i] << endl;
-    }
+    // Key insights
+    // I don't give any stone away until I become an adult
+    // The number of stones I have is the number of stones I can give away to adjacent adults
 
-    for(int i = 0; i < n; i++ ) {
-        cout << a[i] << endl;
-    }
 
+    // ith alien has Ai stones and will become an adult exactly i years later
+    
+    // Initially no one is an adult
+    // Let's start the index at 1 for looping
+    // First loop iteration,
+    //   A[1] becomes an adult,
+    //   and any adults before A[1] gives him a stone (If they have any)
+    // Second loop iteration,
+    //   A[2] becomes an adult,
+    //   and any adults before A[2] gives him a stone (If they have any)
+    // ith loop iteration,
+    //   A[i] becomes an adult,
+    //   and any adults below index i (<i) gives them a stone (If they have any)
+
+    // How many stones do I receive have when I become an adult (It is the current index)
+    //   Then number of stones I receive is the number of adult befor me that has at least 1 stone
+    //   In other words A[i] += for each adult from A[0] to A[i-1] if adult has at least 1 stone then I get one
+    //
+    //   How do I know how many adults have at least one stone during the time I become an adult?
+    // How many stones do I give away once I become an adult at the end of the loop?
+    //   Number of stones to give away = length of array - ith index;
+    //
+    //  Initially
+    //  [1,2,3,4,5,6,7];
+    //
+    //  On Year 1
+    //  [1,2,3,4,5,6,7];
+    //   ^
+    //  // First index can only give away 1 stone for at least 1 year
+    //
+    //  On Year 2
+    //  [0,3,3,4,5,6,7];
+    //     ^
+    //  // Second index can only give away a maximum of 3 years
+    //
+    //  On Year 3
+    //  [0,2,4,4,5,6,7];
+    //       ^
+    //  Third index can give away a maximum of 4 stones to the next 4th indices
+}
+
+
+int main() {
+    Speed();
+    int t = 1;
+    while (t--) {
+        Solve();
+    }
     return 0;
 }
