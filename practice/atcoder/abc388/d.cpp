@@ -46,6 +46,8 @@ void Solve() {
     //   In other words A[i] += for each adult from A[0] to A[i-1] if adult has at least 1 stone then I get one
     //
     //   How do I know how many adults have at least one stone during the time I become an adult?
+    //      THIS IS THE MAIN QUESTION?
+
     // How many stones do I give away once I become an adult at the end of the loop?
     //   Number of stones to give away = length of array - ith index;
     //
