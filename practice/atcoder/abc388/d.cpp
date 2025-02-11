@@ -17,15 +17,14 @@ void Speed() {
 void Solve() {
     int n;
     cin >> n;
-    vector<int> a(n+1);
-    for(int i = 1; i < n; i++) {
+    vector<int> a(n);
+    for(int i = 0; i < n; i++) {
         cin >> a[i];
     }
 
     // Key insights
     // I don't give any stone away until I become an adult
     // The number of stones I have is the number of stones I can give away to adjacent adults
-
 
     // ith alien has Ai stones and will become an adult exactly i years later
     
@@ -68,6 +67,21 @@ void Solve() {
     //  [0,2,4,4,5,6,7];
     //       ^
     //  Third index can give away a maximum of 4 stones to the next 4th indices
+    //
+    //  Rephrase the question Alien i has Ai stones & and will become and adult in i years
+    //  Alien i gives each alien i+1, i+2 + N a stone if he has one
+    //  How many stones will the aliens have?
+    
+    vector<int> c(n), d(n+1);
+    for (int i = 0; i < n; i++) {
+        if (i != 0) {
+
+        }
+        int count = min(n - i - 1, a[i]);
+        a[i] -= count;
+        d[i+1]++;
+        d[min(n, i + count + 1)]--;
+    }
 }
 
 
