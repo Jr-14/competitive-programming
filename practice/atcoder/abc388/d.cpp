@@ -75,12 +75,16 @@ void Solve() {
     vector<int> c(n), d(n+1);
     for (int i = 0; i < n; i++) {
         if (i != 0) {
-
+            c[i] = c[i - 1] + d[i];
+            a[i] += c[i];
         }
         int count = min(n - i - 1, a[i]);
         a[i] -= count;
         d[i+1]++;
         d[min(n, i + count + 1)]--;
+    }
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << endl;
     }
 }
 
